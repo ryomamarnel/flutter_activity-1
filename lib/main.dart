@@ -1,5 +1,7 @@
-import 'package:fitness/pages/Home.dart';
 import 'package:flutter/material.dart';
+import 'pages/login.dart';
+import 'pages/profile.dart';
+import 'pages/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,13 +10,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Poppins'),
-      home: HomePage(),
+      initialRoute: '/login',
+      routes: {
+        '/login': (context) => const LoginPage(),
+        '/profile': (context) => const ProfilePage(),
+        '/home': (context) => const HomePage(),
+      },
     );
   }
 }
